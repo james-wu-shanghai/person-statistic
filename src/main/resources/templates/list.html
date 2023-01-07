@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>人数统计页面</title>
+</head>
+<body>
+<table th:border="1">
+    <thead>
+    <tr>
+        <td>设备ID</td>
+        <td>人数</td>
+        <td>统计时间</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p:${personStats}">
+        <td th:text="${p.getEid()}"></td>
+        <td th:text="${p.getCount()}"></td>
+        <td th:text="${#dates.format(p.getTime(),'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
