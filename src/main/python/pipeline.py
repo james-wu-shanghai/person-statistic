@@ -6,7 +6,7 @@ import json
 
 def trigger_update(count, timestamp):
     print(count,timestamp)
-    response = requests.post(url="http://192.168.0.10:8080/person-stat/update",
+    response = requests.post(url="http://www.james-wu-shanghai.com:8080/person-stat/update",
     data=json.dumps({"eid":"RaspPi001","count":count,"time":timestamp}),
     headers={"content-type": "application/json"})
 
