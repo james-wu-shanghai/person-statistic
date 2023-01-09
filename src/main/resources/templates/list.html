@@ -2,25 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>人工智能人数统计系统</title>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
-<h1>人数统计</h1>
-<table th:border="1">
-    <thead>
-    <tr>
-        <td>设备ID</td>
-        <td>人数</td>
-        <td>统计时间</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="p:${personStats}">
-        <td th:text="${p.getEid()}"></td>
-        <td th:text="${p.getCount()}"></td>
-        <td th:text="${#dates.format(p.getTime(),'yyyy-MM-dd HH:mm:ss')}"></td>
-    </tr>
-    </tbody>
-</table>
+<div>
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/list">人数统计</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <table class="table table-striped table-hover table-bordered table-responsive">
+            <thead>
+            <tr>
+                <td>设备ID</td>
+                <td>人数</td>
+                <td>统计时间</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p:${personStats}">
+                <td th:text="${p.getEid()}"></td>
+                <td th:text="${p.getCount()}"></td>
+                <td th:text="${#dates.format(p.getTime(),'yyyy-MM-dd HH:mm:ss')}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
 </body>
 </html>
